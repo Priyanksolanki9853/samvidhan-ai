@@ -29,7 +29,7 @@ header h1 { margin: 0; color: #e94560; }
 .chat-box {
     flex: 1;
     padding: 20px;
-    overflow-y: auto; /* Allows scrolling */
+    overflow-y: auto; 
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -38,7 +38,7 @@ header h1 { margin: 0; color: #e94560; }
 .message {
     padding: 10px 15px;
     border-radius: 10px;
-    max-width: 85%; /* Slightly wider for long legal text */
+    max-width: 85%; 
     line-height: 1.4;
 }
 
@@ -100,31 +100,27 @@ button:hover { background-color: #c12c45; }
     80%, 100% { content: '...'; }
 }
 
-/* --- New Styles for AI Response Formatting --- */
-
+/* --- AI Response Formatting --- */
 .formatted-content {
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
-/* Make headers (h1, h2, etc) stand out */
 .formatted-content h1, 
 .formatted-content h2, 
 .formatted-content h3 {
     margin-top: 10px;
     margin-bottom: 5px;
-    color: #e94560; /* Pink Highlight */
+    color: #e94560; 
     font-size: 1.1rem;
     border-bottom: 1px solid rgba(233, 69, 96, 0.3);
     padding-bottom: 3px;
 }
 
-/* Make bold text Gold so it pops against dark background */
 .formatted-content strong {
     color: #ffcc00; 
 }
 
-/* Clean up lists */
 .formatted-content ul, 
 .formatted-content ol {
     padding-left: 20px;
@@ -135,7 +131,6 @@ button:hover { background-color: #c12c45; }
     margin-bottom: 5px;
 }
 
-/* Source Citation Style */
 .source-citation {
     margin-top: 15px;
     padding-top: 10px;
@@ -144,4 +139,43 @@ button:hover { background-color: #c12c45; }
     font-style: italic;
     color: #aaa;
     text-align: right;
+}
+
+/* --- NEW: Suggestion Chips Styling --- */
+.suggestions {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #16213e;
+    overflow-x: auto; /* Scroll sideways if needed */
+    white-space: nowrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    scrollbar-width: thin; /* Make scrollbar thin (Firefox) */
+    scrollbar-color: #e94560 #16213e;
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+.suggestions::-webkit-scrollbar {
+    height: 6px;
+}
+.suggestions::-webkit-scrollbar-thumb {
+    background-color: #e94560;
+    border-radius: 10px;
+}
+
+.suggestions button {
+    background-color: #30344c;
+    color: #e94560;
+    border: 1px solid #e94560;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.suggestions button:hover {
+    background-color: #e94560;
+    color: white;
+    transform: translateY(-2px);
 }

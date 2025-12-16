@@ -23,7 +23,6 @@ async function sendMessage() {
         removeMessage(loadingId);
         
         // 5. Format the Answer
-        // 'marked.parse' converts **bold** to <b>bold</b> and * lists to <li>
         let formattedText = "";
         if (data.result) {
             formattedText = marked.parse(data.result);
@@ -51,10 +50,10 @@ function addMessage(text, className) {
     const chatBox = document.getElementById("chat-box");
     const msgDiv = document.createElement("div");
     msgDiv.className = `message ${className}`;
-    msgDiv.innerHTML = text; // Using innerHTML to allow bold text/breaks
+    msgDiv.innerHTML = text; 
     msgDiv.id = "msg-" + Date.now();
     chatBox.appendChild(msgDiv);
-    chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to bottom
+    chatBox.scrollTop = chatBox.scrollHeight; 
     return msgDiv.id;
 }
 
@@ -69,3 +68,10 @@ document.getElementById("user-input").addEventListener("keypress", function(even
         sendMessage();
     }
 });
+
+// --- NEW FUNCTION: Handles Suggestion Chip Clicks ---
+function fillInput(text) {
+    const inputField = document.getElementById("user-input");
+    inputField.value = text;
+    inputField.focus(); // Focus so user can press Enter immediately
+}
