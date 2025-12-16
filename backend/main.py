@@ -23,7 +23,7 @@ app.add_middleware(
 
 # 3. Initialize the Brain (Gemini Model)
 # "gemini-pro" is the text model.
-llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite", google_api_key=GOOGLE_API_KEY)
 
 @app.get("/")
 def read_root():
