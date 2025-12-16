@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samvidhan AI</title>
-    <link rel="stylesheet" href="style.css">
-    
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="main-container">
-        <header>
-            <h1>Samvidhan AI 🇮🇳</h1>
-            <p>Your Constitutional Legal Assistant</p>
-        </header>
+      <h1>🇮🇳 Samvidhan AI</h1>
 
-        <div id="chat-box" class="chat-box">
-            <div class="message bot-message">
-                Hello! I am Samvidhan AI. Ask me any legal question.
-            </div>
-        </div>
+      <div class="controls" style="margin-bottom: 15px; text-align: center">
+        <label for="mode-select" style="font-weight: bold; color: #333"
+          >Select Mode:</label
+        >
+        <select
+          id="mode-select"
+          style="padding: 8px; border-radius: 5px; border: 1px solid #ccc"
+        >
+          <option value="constitution">📜 Constitution (Rights)</option>
+          <option value="bns">⚖️ IPC vs BNS (New Laws)</option>
+        </select>
+      </div>
 
-        <div class="suggestions">
-            <button onclick="fillInput('What are my rights if arrested?')">👮 Rights on Arrest</button>
-            <button onclick="fillInput('What is Article 15?')">⚖️ Article 15</button>
-            <button onclick="fillInput('Punishment for cyber crime')">💻 Cyber Crime</button>
-            <button onclick="fillInput('Traffic challan rules')">🚗 Traffic Rules</button>
+      <div class="chat-container" id="chat-container">
+        <div class="message bot-message">
+          Namaste! I am your legal assistant. Select a mode above to start.
         </div>
 
         <div class="input-area">
@@ -34,7 +33,6 @@
             <button onclick="sendMessage()">Ask</button>
         </div>
     </div>
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

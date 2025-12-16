@@ -1,28 +1,32 @@
 // This URL must match where Member A is running the backend
 const API_URL = "http://127.0.0.1:8000"; 
-
 async function sendMessage() {
     const inputField = document.getElementById("user-input");
-    const question = inputField.value;
+    const modeSelect = document.getElementById("mode-select"); // Get the switch
+    const chatContainer = document.getElementById("chat-container");
+    
+    const message = inputField.value.trim();
+    const mode = modeSelect.value; // Get the selected mode ("constitution" or "bns")
 
-    if (question.trim() === "") return;
+    if (message === "") return;
 
-    // 1. Show User Message on Screen
-    addMessage(question, "user-message");
-    inputField.value = ""; // Clear input
+    // Add User Message
+    addMessage(message, "user-message");
+    inputField.value = "";
 
-    // 2. Show "Thinking..." temporary message
-    const loadingId = addMessage('<span class="typing-indicator">Analyzing Constitution</span>', "bot-message");
+    // Add Loading Animation
+    const loadingId = addMessage('<span class="typing-indicator">Consulting Legal Archives...</span>', "bot-message");
 
     try {
-        // 3. Send Request to Backend
-        const response = await fetch(`${API_URL}/search?query=${encodeURIComponent(question)}`);
+        // SEND MODE TO BACKEND
+        const response = await fetch(`http://127.0.0.1:8000/search?query=${encodeURIComponent(message)}&mode=${mode}`);
         const data = await response.json();
 
         // 4. Remove "Thinking..."
         removeMessage(loadingId);
         
         // 5. Format the Answer
+        // 'marked.parse' converts **bold** to <b>bold</b> and * lists to <li>
         let formattedText = "";
         if (data.result) {
             formattedText = marked.parse(data.result);
@@ -39,21 +43,21 @@ async function sendMessage() {
         addMessage(finalHTML, "bot-message");
 
     } catch (error) {
-        removeMessage(loadingId);
-        addMessage("Error: Could not connect to backend. Is the Python server running?", "bot-message");
         console.error(error);
+        const loadingMsg = document.getElementById(loadingId);
+        if (loadingMsg) loadingMsg.remove();
+        addMessage("⚠️ Connection Error. Ensure Backend is running.", "bot-message");
     }
 }
 
-// Helper function to add bubbles to the chat
 function addMessage(text, className) {
     const chatBox = document.getElementById("chat-box");
     const msgDiv = document.createElement("div");
     msgDiv.className = `message ${className}`;
-    msgDiv.innerHTML = text; 
+    msgDiv.innerHTML = text; // Using innerHTML to allow bold text/breaks
     msgDiv.id = "msg-" + Date.now();
     chatBox.appendChild(msgDiv);
-    chatBox.scrollTop = chatBox.scrollHeight; 
+    chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to bottom
     return msgDiv.id;
 }
 
@@ -68,10 +72,3 @@ document.getElementById("user-input").addEventListener("keypress", function(even
         sendMessage();
     }
 });
-
-// --- NEW FUNCTION: Handles Suggestion Chip Clicks ---
-function fillInput(text) {
-    const inputField = document.getElementById("user-input");
-    inputField.value = text;
-    inputField.focus(); // Focus so user can press Enter immediately
-}
