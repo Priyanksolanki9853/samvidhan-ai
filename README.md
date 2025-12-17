@@ -69,6 +69,7 @@ NYAYA.ai ensures legal precision by eliminating AI hallucinations through a veri
 
 ## 📂 Project Structure
 
+```mermaid
 samvidhan-ai/
 ├── backend/            # FastAPI Server
 │   ├── main.py         # Primary API endpoints
@@ -81,6 +82,7 @@ samvidhan-ai/
 │   └── script.js       # Frontend API handlers
 ├── data/               # Legal PDF Datasets
 └── README.md           # Project Documentation
+```
 
 ---
 
