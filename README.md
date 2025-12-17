@@ -95,9 +95,7 @@ NYAYA AI ensures 100% accuracy and eliminates AI "hallucinations" through a robu
 
 | Dashboard Hero | Chat Interface |
 | :---: | :---: |
-| ![Dashboard](<img width="1832" height="1042" alt="image" src="https://github.com/user-attachments/assets/2b252952-a819-4f0c-b35a-23dbc2169c3e" />
-) | ![Chat](<img width="1881" height="1038" alt="image" src="https://github.com/user-attachments/assets/91c71616-e875-4ea3-a5d9-6d17ded5566a" />
-) |
+| ![Dashboard](<img width="1832" height="1042" alt="image" src="https://github.com/user-attachments/assets/2b252952-a819-4f0c-b35a-23dbc2169c3e" />) | ![Chat](<img width="1881" height="1038" alt="image" src="https://github.com/user-attachments/assets/91c71616-e875-4ea3-a5d9-6d17ded5566a" />) |
 
 ---
 
