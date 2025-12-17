@@ -121,11 +121,11 @@ samvidhan-ai/
 
 ## Roadmap & Future Vision
 
-[x] Phase 1: Core RAG pipeline and BNS/IPC mapping.
-[x] Phase 2: Automated Document Drafting.
-[ ] Phase 3: Support for 12+ regional Indian languages via Whisper API.
-[ ] Phase 4: Fine-tuning on 50,000+ landmark Supreme Court judgments.
-[ ] Phase 5: Mobile App (iOS/Android) using Flutter.
+| [x] Phase 1: Core RAG pipeline and BNS/IPC mapping. |
+| [x] Phase 2: Automated Document Drafting. |
+| [ ] Phase 3: Support for 12+ regional Indian languages via Whisper API. |
+| [ ] Phase 4: Fine-tuning on 50,000+ landmark Supreme Court judgments. |
+| [ ] Phase 5: Mobile App (iOS/Android) using Flutter. |
 
 ---
 
