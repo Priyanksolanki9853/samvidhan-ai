@@ -133,4 +133,16 @@ samvidhan-ai/
 *NYAYA.ai is an experimental tool provided for educational and informational purposes only. It does not constitute formal legal advice. Always consult a certified legal professional for official matters. Predictions made by the AI Judge are based on data patterns and do not guarantee actual court outcomes.*
 
 ---
-**Developed by Priyank Solanki with ❤️ for Legal Literacy in India** 🇮🇳
+
+## 📬 Contact
+
+**Priyank Solanki** 
+
+* [**GitHub**](https://github.com/Priyanksolanki9853)
+* [**Email**](mailto:priyank9853@gmail.com)
+
+---
+
+<div align="center">
+  <sub>Built with 💻 & ☕ by Priyank Solanki. © 2025 All Rights Reserved.</sub>
+</div>
