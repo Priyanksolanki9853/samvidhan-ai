@@ -1,243 +1,60 @@
-# 🇮🇳 Samvidhan AI – Intelligent Constitutional Assistant
+# ⚖️ Samvidhan AI: Intelligent Legal Assistant
 
-Samvidhan AI is an **AI-powered legal assistant** built to make the **Indian Constitution accessible, understandable, and actionable** for every citizen. It leverages **Retrieval-Augmented Generation (RAG)** to fetch authentic constitutional articles and explain them in **simple, citizen-friendly language** using modern generative AI.
+![Platform](https://img.shields.io/badge/Platform-Web-blue)
+![Python](https://img.shields.io/badge/Python-3.11-green)
+![FastAPI](https://img.shields.io/badge/FastAPI-Latest-black)
+![LLM](https://img.shields.io/badge/LLM-Llama--3.3--70B-orange)
+![Database](https://img.shields.io/badge/Vector%20DB-Pinecone-blueviolet)
 
-The system ensures **accuracy, transparency, and trust** by grounding every response directly in the Constitution of India and explicitly citing the relevant Articles.
-
----
-
-## 🎯 Problem Statement
-
-Legal language is often complex and inaccessible to non-lawyers. Citizens frequently struggle to understand:
-
-* Their **fundamental rights**
-* Legal protections during arrest or detention
-* Constitutional remedies and freedoms
-
-**Samvidhan AI bridges this gap** by transforming dense legal text into clear explanations while preserving constitutional authenticity.
+**Samvidhan AI** is a cutting-edge, Full-Stack Legal Assistant designed to bridge the gap between complex Indian Law and the common citizen. By leveraging **Retrieval-Augmented Generation (RAG)** and the latest **Llama 3.3 70B** model, it provides accurate, real-time insights into the Indian Constitution and the new **Bhartiya Nyaya Sanhita (BNS)**.
 
 ---
 
-## ✨ Key Features
+## 🚀 Key Features
 
-### 🔍 Intelligent Constitutional Search
+### 1. 🧑‍⚖️ AI Judge (Verdict Predictor)
+Users can input real-life scenarios, and the AI acts as a Senior Judge to identify applicable BNS/IPC sections, predict likely verdicts, and determine bail eligibility.
 
-Ask natural language questions such as:
+### 2. 📝 Legal Document Drafter
+Instantly generate professional-grade legal documents like **Rent Agreements, Affidavits, and Court Petitions**.
+- **PDF Download:** Generated drafts can be exported as high-quality PDFs with a single click.
 
-* *“Can I be arrested without a warrant?”*
-* *“What does Article 21 protect?”*
-* *“What are my fundamental rights?”*
+### 3. 📄 PDF Analysis (Document OCR)
+Upload existing legal documents (Notices, Agreements, FIRs). The AI extracts text and provides a **Risk Analysis** and summary in plain language.
 
-The system retrieves **precise constitutional provisions** before generating answers.
+### 4. ⚖️ IPC to BNS Converter
+Deep mapping of old Indian Penal Code (IPC) sections to the new 2023 Bhartiya Nyaya Sanhita (BNS) laws.
 
-### 🧠 RAG (Retrieval-Augmented Generation) Architecture
-
-* Retrieves relevant Articles from a **vector database (Pinecone)**
-* Uses **Google Gemini Pro** to generate contextual, easy-to-understand explanations
-* Eliminates hallucinations by grounding answers in verified legal text
-
-### ⚡ Hybrid AI Engine
-
-* **HuggingFace local embeddings** for fast, cost-effective semantic search
-* **Google Gemini** for high-quality reasoning and natural language explanations
-
-### 📚 Source Attribution & Transparency
-
-* Every response includes **explicit Article references** (e.g., Article 14, 19, 21)
-* Promotes trust and legal authenticity
-
-### 🎨 Modern & Responsive UI
-
-* Clean, minimal frontend
-* Real-time response and “thinking” indicators
-* Optimized for desktop and mobile usage
-
----
-
-## 🏗️ System Architecture
-
-```
-User Query
-   ↓
-Frontend (HTML/CSS/JS)
-   ↓
-FastAPI Backend
-   ↓
-Embedding Model (HuggingFace)
-   ↓
-Pinecone Vector Database (Constitution Articles)
-   ↓
-Relevant Context Retrieval
-   ↓
-Google Gemini (Explanation Generation)
-   ↓
-Answer + Article Citations
-```
+### 5. 🗣️ Multilingual Support & Voice
+Supports **Hinglish/Hindi** queries to ensure accessibility. Built-in **Voice Recognition** allow users to speak their legal concerns.
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | HTML5, CSS3 (Glassmorphism UI), JavaScript (ES6+) |
+| **Backend** | Python, FastAPI, Uvicorn |
+| **AI Model** | Llama 3.3 70B (via Groq Cloud) |
+| **Vector DB** | Pinecone (High-speed Vector Search) |
+| **Embeddings** | HuggingFace (`all-mpnet-base-v2`) |
+| **OCR/PDF** | PyPDF & HTML2PDF.js |
 
-* HTML5
-* CSS3
-* Vanilla JavaScript
+---
 
-### Backend
+## 🏗️ System Architecture
 
-* Python
-* FastAPI
-* LangChain
-
-### AI & NLP
-
-* **LLM:** Google Gemini Pro
-* **Embeddings:** `sentence-transformers/all-mpnet-base-v2`
-* **RAG Framework:** LangChain
-
-### Database
-
-* Pinecone (Vector Database)
+1. **User Query:** Entered via text or voice.
+2. **Retrieval:** System generates a vector embedding and searches the **Pinecone Database** for relevant Articles/Sections.
+3. **Augmentation:** Top results are fed into the **Llama 3.3** model as context.
+4. **Generation:** AI provides a structured, professional response with sources.
 
 ---
 
 ## ⚙️ Installation & Setup
 
-Follow the steps below to run Samvidhan AI locally.
-
-### 1️⃣ Clone the Repository
-
+### 1. Clone the Project
 ```bash
-git clone https://github.com/PriyankSolanki9853/samvidhan-ai.git
+git clone [https://github.com/YOUR_USERNAME/samvidhan-ai.git](https://github.com/YOUR_USERNAME/samvidhan-ai.git)
 cd samvidhan-ai
-```
-
----
-
-### 2️⃣ Backend Setup
-
-```bash
-cd backend
-python -m venv venv
-```
-
-Activate the virtual environment:
-
-**Windows**
-
-```bash
-venv\Scripts\activate
-```
-
-**Mac / Linux**
-
-```bash
-source venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install fastapi uvicorn pinecone-client langchain-google-genai langchain-community python-dotenv sentence-transformers langchain-huggingface
-```
-
----
-
-### 3️⃣ Environment Variables
-
-Create a `.env` file inside the `backend` folder:
-
-```ini
-GOOGLE_API_KEY=your_google_gemini_key
-PINECONE_API_KEY=your_pinecone_api_key
-```
-
----
-
-### 4️⃣ Load the Knowledge Base
-
-Upload the Indian Constitution data into Pinecone:
-
-```bash
-python upload_all.py
-```
-
----
-
-### 5️⃣ Run the Backend Server
-
-```bash
-uvicorn main:app --reload
-```
-
-Server will be available at:
-
-```
-http://127.0.0.1:8000
-```
-
----
-
-## 🖥️ Usage Guide
-
-1. Ensure the **backend server is running**
-2. Navigate to the `frontend` folder
-3. Open `index.html` in a browser (or use VS Code Live Server)
-4. Ask constitutional questions like:
-
-   * *“What are my fundamental rights?”*
-   * *“Explain Article 19 in simple terms”*
-   * *“Can police arrest me without a warrant?”*
-
----
-
-## 📁 Project Structure
-
-```
-samvidhan-ai/
-├── backend/
-│   ├── data/                # Constitution JSON files
-│   ├── main.py              # FastAPI app & RAG logic
-│   ├── upload_all.py        # Pinecone ingestion script
-│   ├── .env                 # API keys (not committed)
-│   └── requirements.txt     # Python dependencies
-│
-├── frontend/
-│   ├── index.html           # User Interface
-│   ├── style.css            # Styling
-│   └── script.js            # API communication
-│
-└── README.md
-```
-
----
-
-## 🚀 Future Enhancements
-
-* Multilingual support (Hindi & regional languages)
-* Voice-based constitutional queries
-* Legal scenario simulations
-* Offline embedding fallback
-* Public API for legal-tech integration
-
----
-
-## 👥 Team
-
-* **Backend Architect & AI Integration**
-* **Frontend Developer & UI/UX Designer**
-
----
-
-## ⚠️ Disclaimer
-
-Samvidhan AI is an **educational and informational tool**. It does **not replace professional legal advice**.
-
----
-
-## ❤️ Acknowledgements
-
-Built with a vision to empower citizens and strengthen constitutional awareness.
-
-**Made with ❤️ for India 🇮🇳**
