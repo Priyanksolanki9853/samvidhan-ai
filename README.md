@@ -162,6 +162,12 @@ Contributions are welcome! 🚀
 
 ---
 
+## 📄 License
+
+This project is distributed under the **MIT License**. See the `LICENSE` file for more information.
+
+---
+
 ## 📬 Contact
 
 **Priyank Solanki** 
